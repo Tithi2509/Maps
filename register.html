@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="reg.css">
+  <title>Register</title>
+    <script>
+        function validate_password() {
+ 
+        var pass = document.getElementById('pass').value;
+        var confirm_pass = document.getElementById('confirm_pass').value;
+        if (pass != confirm_pass) {
+            document.getElementById('wrong_pass_alert').style.color = 'red';
+            document.getElementById('wrong_pass_alert').innerHTML
+            = '☒ Use same password';
+            document.getElementById('create').disabled = true;
+            document.getElementById('create').style.opacity = (0.4);
+        } else {
+            document.getElementById('wrong_pass_alert').style.color = 'green';
+            document.getElementById('wrong_pass_alert').innerHTML =
+                '🗹 Password Matched';
+            document.getElementById('create').disabled = false;
+            document.getElementById('create').style.opacity = (1);
+        }
+    }
+
+    function wrong_pass_alert() {
+            if (document.getElementById('pass').value != "" &&
+                document.getElementById('confirm_pass').value != "" &&
+                document.getElementById('email').value != "" && 
+                document.getElementById('name').value != "" ) {
+                alert("Your response is submitted");
+            } else {
+                alert("Please fill all the fields");
+            }
+        }
+
+
+    </script>
+  
+
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="">
+                    <h2>Register</h2>
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="name" name="name" placeholder="Username" tabindex="10" required>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" name="email" placeholder="Email Address" tabindex="10" required>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input id = "pass" type="password" name="pass"  placeholder="Enter Password" required>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input id="confirm_pass" type="password" name="confirm_pass"  placeholder="Confirm Password" onkeyup="validate_password()" required>
+                    </div>
+
+                    <span id="wrong_pass_alert"></span>
+                    <div class="buttons">
+                        <div class="text-center mb-3">
+                            <button id="create" type="submit" class="btn btn-block text-uppercase" onclick="wrong_pass_alert()"
+                             >REGISTER</button>
+                        </div>
+                    </div>
+                            
+                            
+                            <hr class="my-4">
+                            <div class="text-center mb-2">
+                                Have an account?
+                                <a href="#" class="register-link">
+                                    Sign-up
+                                </a>
+                            </div>
+
+
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
